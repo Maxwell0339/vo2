@@ -1,0 +1,9 @@
+<launch>
+    <node name="vo2_node" pkg="vo2" type="vo2_node" output="screen"
+          args="$(find vo2)/config/stereo.yaml">
+        <param name="trajectory_file" value="$(find vo2)/vo2_trajectory.txt"/>
+    </node>
+
+    <node name="rviz" pkg="rviz" type="rviz" output="screen"
+          args="-d $(find vo2)/launch/vo2_rviz.rviz"/>
+</launch>
