@@ -114,11 +114,23 @@ Visualization Manager:
       Value: true
     - Class: rviz/Image
       Enabled: true
-      Image Topic: ""
+      Image Topic: /cam0/image_raw
       Max Value: 1
       Median window: 5
       Min Value: 0
-      Name: Tracking Image
+      Name: Cam0 Image
+      Normalize Range: true
+      Queue Size: 100
+      Transport Hint: raw
+      Unreliable: false
+      Value: true
+    - Class: rviz/Image
+      Enabled: true
+      Image Topic: /cam1/image_raw
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: Cam1 Image
       Normalize Range: true
       Queue Size: 100
       Transport Hint: raw
@@ -167,7 +179,9 @@ Window Geometry:
   Hide Left Dock: false
   Hide Right Dock: false
   QMainWindow State: 000000ff00000000fd0000000100000000000001560000027afc0200000003fb0000001c0054007200610063006b0069006e006700200049006d006100670065010000003b000000950000001600fffffffb000000100044006900730070006c00610079007301000000d6000000d4000000c700fffffffb0000000a0056006900650077007301000001b000000105000000a000ffffff000001600000027a00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
-  Tracking Image:
+  Cam0 Image:
+    collapsed: false
+  Cam1 Image:
     collapsed: false
   Views:
     collapsed: false
