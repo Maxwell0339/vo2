@@ -2,8 +2,8 @@
 
 ## Prerequisites
 - ROS Noetic
-- OpenCV 4.5.2
-- Eigen 3.3.9
+- OpenCV4
+- Eigen3
 - Ceres Solver 1.14
 
 ## Building
