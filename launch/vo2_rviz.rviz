@@ -1,11 +1,11 @@
 Panels:
   - Class: rviz/Displays
-    Help Height: 70
+    Help Height: 0
     Name: Displays
     Property Tree Widget:
       Expanded: ~
       Splitter Ratio: 0.5
-    Tree Height: 83
+    Tree Height: 212
   - Class: rviz/Views
     Expanded:
       - /Current View1
@@ -94,7 +94,7 @@ Visualization Manager:
           Scale: 1
           Value: false
         Value: true
-      Enabled: true
+      Enabled: false
       Keep: 1
       Name: VO2 Odometry
       Position Tolerance: 0.10000000149011612
@@ -111,7 +111,7 @@ Visualization Manager:
         Value: Arrow
       Topic: /vo2/odometry
       Unreliable: false
-      Value: true
+      Value: false
     - Class: rviz/Image
       Enabled: true
       Image Topic: /cam0/image_raw
@@ -173,18 +173,18 @@ Visualization Manager:
       Yaw: 0.5
     Saved: ~
 Window Geometry:
+  Cam0 Image:
+    collapsed: false
+  Cam1 Image:
+    collapsed: false
   Displays:
     collapsed: false
   Height: 720
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd0000000100000000000001560000027afc0200000003fb0000001c0054007200610063006b0069006e006700200049006d006100670065010000003b000000950000001600fffffffb000000100044006900730070006c00610079007301000000d6000000d4000000c700fffffffb0000000a0056006900650077007301000001b000000105000000a000ffffff000001600000027a00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
-  Cam0 Image:
-    collapsed: false
-  Cam1 Image:
-    collapsed: false
+  QMainWindow State: 000000ff00000000fd0000000100000000000001560000027afc0200000005fb0000001c0054007200610063006b0069006e006700200049006d006100670065010000003b000000950000000000000000fb000000100044006900730070006c006100790073010000003b0000010f000000c700fffffffb0000000a005600690065007700730000000108000000a0000000a000fffffffb0000001400430061006d003100200049006d0061006700650100000150000000b00000001600fffffffb0000001400430061006d003000200049006d0061006700650100000206000000af0000001600ffffff000004080000027a00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
-  Width: 700
-  X: -31
-  Y: -29
+  Width: 1380
+  X: 2248
+  Y: 195

@@ -42,7 +42,7 @@ int Backend::OptimizePose(Frame::Ptr frame, const CamModel& cam) {
         observations.push_back(obs);
     }
 
-    if (observations.size() < 4) {
+    if (observations.size() == 0) {
         ROS_WARN("Backend: too few observations (%lu)", observations.size());
         return 0;
     }
@@ -105,7 +105,7 @@ int Backend::OptimizePose(Frame::Ptr frame, const CamModel& cam) {
         num_inliers++;
     }
 
-    if (num_inliers < 4) {
+    if (num_inliers == 0) {
         ROS_WARN("Backend: too few inliers after outlier rejection (%d)", num_inliers);
         return num_inliers;
     }

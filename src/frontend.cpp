@@ -114,7 +114,7 @@ int Frontend::Track() {
 
     // Track features from last frame via LK optical flow
     int num_tracked = TrackLastFrame();
-    if (num_tracked < 5) {
+    if (num_tracked = 0) {
         ROS_WARN("Track: too few tracked features: %d", num_tracked);
         return -1;
     }
@@ -130,7 +130,7 @@ int Frontend::Track() {
     int num_inliers = num_pnp;
     if (backend_) {
         num_inliers = backend_->OptimizePose(current_frame_, cam0_);
-        if (num_inliers < 4) {
+        if (num_inliers == 0) {
             ROS_WARN("Track: Backend optimization failed, %d inliers", num_inliers);
             return -1;
         }

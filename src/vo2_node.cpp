@@ -2,8 +2,12 @@
 #include <sensor_msgs/Image.h>
 #include <nav_msgs/Odometry.h>
 #include <nav_msgs/Path.h>
+#include <geometry_msgs/PointStamped.h>
 #include <geometry_msgs/PoseStamped.h>
 #include <geometry_msgs/TransformStamped.h>
+#include <tf2_geometry_msgs/tf2_geometry_msgs.h>
+#include <tf2_ros/buffer.h>
+#include <tf2_ros/transform_listener.h>
 #include <tf2_ros/transform_broadcaster.h>
 #include <tf2/LinearMath/Quaternion.h>
 #include <cv_bridge/cv_bridge.h>
@@ -31,6 +35,7 @@ public:
     VO2Node(ros::NodeHandle& nh, const std::string& config_file) : nh_(nh) {
         readParameters(config_file);
 
+
         // Setup publishers
         odom_pub_ = nh_.advertise<nav_msgs::Odometry>("/vo2/odometry", 100);
         path_pub_ = nh_.advertise<nav_msgs::Path>("/vo2/path", 10);
@@ -41,6 +46,7 @@ public:
         sub_img1_.subscribe(nh_, image1_topic_, 100);
         sync_ = std::make_shared<message_filters::Synchronizer<SyncPolicy>>(SyncPolicy(10), sub_img0_, sub_img1_);
         sync_->registerCallback(boost::bind(&VO2Node::imageCallback, this, _1, _2));
+
 
         // Open trajectory file
         std::string traj_path;
@@ -184,6 +190,7 @@ private:
         }
     }
 
+
     void publishPose(const Eigen::Matrix4d& T_w_cam0, const ros::Time& stamp) {
         // Convert camera pose to body pose: T_w_body = T_w_cam0 * inv(body_T_cam0)
         Eigen::Matrix4d T_w_body = T_w_cam0 * body_T_cam0_.inverse();
@@ -259,12 +266,15 @@ private:
     // Subscribers & sync
     message_filters::Subscriber<sensor_msgs::Image> sub_img0_, sub_img1_;
     std::shared_ptr<message_filters::Synchronizer<SyncPolicy>> sync_;
+    
 
     // Publishers
     ros::Publisher odom_pub_;
     ros::Publisher path_pub_;
     ros::Publisher tracking_img_pub_;
     tf2_ros::TransformBroadcaster tf_broadcaster_;
+    std::unique_ptr<tf2_ros::Buffer> tf_buffer_;
+    std::unique_ptr<tf2_ros::TransformListener> tf_listener_;
 
     // VO components
     Frontend::Ptr frontend_;
